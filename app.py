@@ -2,6 +2,7 @@ import streamlit as st
 import formulas
 
 def main():
+    st.image("logo.png", width=150)
     st.title("Welcome to the fucking stupid Macro Calculator!")
     st.write("This is a simple macro calculator that will help you calculate your daily macronutrient needs based on your goals and activity level.")
     st.write("We use the metric system because we are not fucking retarded")
@@ -36,7 +37,7 @@ def main():
     goal_str = st.selectbox("Select your goal:", list(goal_options.keys()))
     goal = goal_options[goal_str]
 
-    if st.button("Calculate Macros"):
+    if st.button("Calculate Macros", type="primary"):
         tbm_result = formulas.tbm(sex, age, weight, height)
         get_result = formulas.get(tbm_result, activity_level)
         calories_result = formulas.calories(get_result, goal)
