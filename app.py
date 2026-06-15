@@ -55,6 +55,7 @@ def main():
             mcol2.metric("Carbs", f"{carbs:.0f}grams")
             mcol3.metric("Fats", f"{fats:.0f}grams")
             mcol4.metric("Fiber", f"{fiber:.0f}grams")
+            st.write("Remember, we aren't fucking retarded, so we use grams and we don't count net carbs we use total carbs, because fiber is important for your gut health and you don't want to be full of shit.")
 
 if __name__ == "__main__":
     main()
