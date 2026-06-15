@@ -2,7 +2,12 @@ import streamlit as st
 import formulas
 
 def main():
-    st.title("Welcome to the Macro Calculator! 🍎")
+    col_logo, col_title = st.columns([1, 4])
+    with col_logo:
+        st.image("assets/logo.png", width=120)
+    with col_title:
+        st.title("Welcome to the Macro Calculator!")
+
     st.write("This is a simple macro calculator that will help you calculate your daily macronutrient needs based on your goals and activity level.")
 
     col1, col2, col3 = st.columns(3)
@@ -34,7 +39,7 @@ def main():
     goal_str = st.selectbox("Select your goal:", list(goal_options.keys()))
     goal = goal_options[goal_str]
 
-    if st.button("Calculate Macros 🚀"):
+    if st.button("Calculate Macros 🚀", use_container_width=True):
         tbm_result = formulas.tbm(sex, age, weight, height)
         get_result = formulas.get(tbm_result, activity_level)
         calories_result = formulas.calories(get_result, goal)
