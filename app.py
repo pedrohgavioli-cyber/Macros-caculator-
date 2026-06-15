@@ -2,6 +2,8 @@ import streamlit as st
 import formulas
 
 def main():
+    st.sidebar.image("assets/logo.png", use_container_width=True)
+
     st.title("Welcome to the fucking stupid Macro Calculator!")
     st.write("This is a simple macro calculator that will help you calculate your daily macronutrient needs based on your goals and activity level.")
     st.write("We use the metric system because we are not fucking retarded")
