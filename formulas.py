@@ -62,20 +62,13 @@ def macros(calories, goal, weight):
     fiber = carbs * 0.14
     if goal == 1:
         carbs_calories = calories - ((protein_calories + fats_calories) - 300)
-        carbs_grams = carbs_calories / carbs
-        fats_grams = fats_calories / 9
-        protein_grams = protein_calories / 4
-        return print('Protein (g):', protein_grams, '\nCarbs (g):', carbs_grams, 'Fats (g):', fats_grams, 'Fiber (g):', fiber)
     elif goal == 2:
         carbs_calories = calories - (protein_calories + fats_calories)
-        carbs_grams = carbs_calories / carbs
-        fats_grams = fats_calories / 9
-        protein_grams = protein_calories / 4
-        return print('Protein (g):', protein_grams, '\nCarbs (g):', carbs_grams, 'Fats (g):', fats_grams, 'Fiber (g):', fiber)
     else:
         carbs_calories = calories - ((protein_calories + fats_calories) + 100)
-        carbs_grams = carbs_calories / carbs
-        fats_grams = fats_calories / 9
-        protein_grams = protein_calories / 4
-        return print('Protein (g):', protein_grams, '\nCarbs (g):', carbs_grams, 'Fats (g):', fats_grams, 'Fiber (g):', fiber)
-    
+
+    carbs_grams = carbs_calories / carbs
+    fats_grams = fats_calories / 9
+    protein_grams = protein_calories / 4
+
+    return protein_grams, carbs_grams, fats_grams, fiber
