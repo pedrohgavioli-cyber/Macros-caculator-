@@ -1,4 +1,11 @@
 def tbm(sex, age:int, weight:float, height:float):
+    if height <= 0:
+        raise ValueError("Height must be greater than zero")
+    if weight <= 0:
+        raise ValueError("Weight must be greater than zero")
+    if age <= 0:
+        raise ValueError("Age must be greater than zero")
+
     imc = weight / (height/100)**2
     if sex == 'm' and imc < 25:
         result = 204 - (4*age) + (weight * 11.69) + (height * 450.5)
