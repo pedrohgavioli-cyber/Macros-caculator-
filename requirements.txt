@@ -1,1 +1,1 @@
-pip instal l streamlit
+pip install streamlit
