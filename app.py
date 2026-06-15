@@ -2,14 +2,16 @@ import streamlit as st
 import formulas
 
 def main():
-    st.title("Welcome to the Macro Calculator! 🍎")
+    st.title("Welcome to the fucking stupid Macro Calculator!")
     st.write("This is a simple macro calculator that will help you calculate your daily macronutrient needs based on your goals and activity level.")
+    st.write("We use the metric system because we are not fucking retarded")
+    st.write("Please don't be a pussy, and enter the information below with honesty\nSow if you are a fucking sedentary pls don't be sad.")
 
     col1, col2, col3 = st.columns(3)
     with col1:
         weight = st.number_input("Weight (kg):", min_value=1.0, value=70.0, step=0.1)
     with col2:
-        height = st.number_input("Height (cm):", min_value=50.0, value=170.0, step=1.0)
+        height = st.number_input("Height (m):", min_value=0.5, value=1.7, step=0.01)
     with col3:
         age = st.number_input("Age (years):", min_value=1, value=30, step=1)
 
@@ -34,12 +36,12 @@ def main():
     goal_str = st.selectbox("Select your goal:", list(goal_options.keys()))
     goal = goal_options[goal_str]
 
-    if st.button("Calculate Macros 🚀"):
+    if st.button("Calculate Macros"):
         tbm_result = formulas.tbm(sex, age, weight, height)
         get_result = formulas.get(tbm_result, activity_level)
         calories_result = formulas.calories(get_result, goal)
 
-        st.subheader("Your Results 📊")
+        st.subheader("Your Results")
         st.write(f"**TBM (Basal Metabolic Rate):** {tbm_result:.0f} kcal")
         st.write(f"**GET (Total Energy Expenditure):** {get_result:.0f} kcal")
         st.write(f"**Target Calories:** {calories_result:.0f} kcal")
@@ -49,10 +51,10 @@ def main():
             protein, carbs, fats, fiber = macros_result
             st.write("### Macronutrients")
             mcol1, mcol2, mcol3, mcol4 = st.columns(4)
-            mcol1.metric("Protein", f"{protein:.0f}g")
-            mcol2.metric("Carbs", f"{carbs:.0f}g")
-            mcol3.metric("Fats", f"{fats:.0f}g")
-            mcol4.metric("Fiber", f"{fiber:.0f}g")
+            mcol1.metric("Protein", f"{protein:.0f}grams")
+            mcol2.metric("Carbs", f"{carbs:.0f}grams")
+            mcol3.metric("Fats", f"{fats:.0f}grams")
+            mcol4.metric("Fiber", f"{fiber:.0f}grams")
 
 if __name__ == "__main__":
     main()
