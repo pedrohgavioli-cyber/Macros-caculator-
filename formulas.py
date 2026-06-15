@@ -38,3 +38,44 @@ def get(tbm, activity_level):
     else:
         result = 1.9 * tbm
         return result
+    
+'''
+1 = get - 300 calories (lose weight)
+2 = get (maintain weight)
+3 = get + 100 calories (gain weight)
+'''
+def calories(get, goal):
+    if goal == 1:
+        result = get - 300
+        return result
+    elif goal == 2:
+        result = get
+        return result
+    else:
+        result = get + 100
+        return result
+
+def macros(calories, goal, weight):
+    protein_calories = weight * 2.2 * 4
+    carbs = 4
+    fats_calories = 9 * weight * 1.1
+    fiber = carbs * 0.14
+    if goal == 1:
+        carbs_calories = calories - ((protein_calories + fats_calories) - 300)
+        carbs_grams = carbs_calories / carbs
+        fats_grams = fats_calories / 9
+        protein_grams = protein_calories / 4
+        return print('Protein (g):', protein_grams, '\nCarbs (g):', carbs_grams, 'Fats (g):', fats_grams, 'Fiber (g):', fiber)
+    elif goal == 2:
+        carbs_calories = calories - (protein_calories + fats_calories)
+        carbs_grams = carbs_calories / carbs
+        fats_grams = fats_calories / 9
+        protein_grams = protein_calories / 4
+        return print('Protein (g):', protein_grams, '\nCarbs (g):', carbs_grams, 'Fats (g):', fats_grams, 'Fiber (g):', fiber)
+    else:
+        carbs_calories = calories - ((protein_calories + fats_calories) + 100)
+        carbs_grams = carbs_calories / carbs
+        fats_grams = fats_calories / 9
+        protein_grams = protein_calories / 4
+        return print('Protein (g):', protein_grams, '\nCarbs (g):', carbs_grams, 'Fats (g):', fats_grams, 'Fiber (g):', fiber)
+    
