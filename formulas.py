@@ -63,14 +63,20 @@ def calories(get, goal):
         return result
 
 def macros(calories, goal, weight):
-    protein_calories = weight * 2.2 * 4
-    carbs = 4
-    fats_calories = 9 * weight * 1.1
     if goal == 1:
+        protein_calories = weight * 2.5 * 4
+        carbs = 4
+        fats_calories = 9 * weight * 0.8
         carbs_calories = calories - ((protein_calories + fats_calories) - 300)
     elif goal == 2:
+        protein_calories = weight * 2.3 * 4
+        carbs = 4
+        fats_calories = 9 * weight * 1.1
         carbs_calories = calories - (protein_calories + fats_calories)
     else:
+        protein_calories = weight * 2.1 * 4
+        carbs = 4
+        fats_calories = 9 * weight * 1.2
         carbs_calories = calories - ((protein_calories + fats_calories) + 100)
 
     carbs_grams = carbs_calories / carbs
